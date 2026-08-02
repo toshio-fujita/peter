@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第1章 ペトロの生い立ち</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #3498db;
+      --bg-color: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --border-color: #e2e8f0;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      line-height: 1.8;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      margin: 0;
+      padding: 20px 10px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-top: 35px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-block {
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background-color: #e1f5fe;
+      color: #0288d1;
+      margin-bottom: 12px;
+    }
+
+    .badge.meditation {
+      background-color: #f3e5f5;
+      color: #7b1fa2;
+    }
+
+    p {
+      margin: 0 0 1em 0;
+      text-align: justify;
+    }
+
+    .info-card {
+      background-color: #f0f7ff;
+      border-left: 5px solid var(--accent-color);
+      padding: 20px;
+      margin: 30px 0 15px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      color: #1976d2;
+      font-size: 1.2rem;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 20px 0 40px 0;
+    }
+
+    .photo-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background-color: #eee;
+    }
+
+    .photo-card .caption {
+      padding: 12px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .photo-card .caption header {
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px 15px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>第1章 ペトロの生い立ち</h1>
+
+  <!-- 1. ガリラヤのベトサイダに生まれた男 -->
+  <div class="section-block">
+    <h2>1. ガリラヤのベトサイダに生まれた男</h2>
+    <span class="badge">史実</span>
+    <p>ガリラヤ湖の北側に、ベトサイダやカペナウムという町々があった。このベトサイダに住んでいたヨハネに男の子が生まれ、「シモン」と名づけられた。この人こそ後の「ペトロ」である。彼の弟の名はアンデレと言った (ヨハネ1章40節)。</p>
+    <p>シモンという名は、イスラエルでは古くから親しまれてきた名であった。だが後にイエスは、彼を「ペトロ (岩)」と呼ぶようになる。イスラエル十二部族の一つであるシメオン族に由来している。当時のユダヤ社会では、族長たちの名にちなんだ名前を子どもに与えることは珍しくなかった。</p>
+    <p>もっとも、シメオン族は歴史の中で早くからユダ族へ同化し、独立した部族としての存在感を失っていたと考えられている。そうした背景を思う時、「岩」と呼ばれる以前のシモンが、どこか埋もれた存在であったことも象徴的に感じられる。</p>
+  </div>
+
+  <!-- 2. ガリラヤという世界 -->
+  <div class="section-block">
+    <h2>2. ガリラヤという世界</h2>
+    <span class="badge">史実 ＋ 背景</span>
+    <p>ガリラヤの漁師たちは、単に網を打つだけの粗野な人々ではなかった。ローマ支配の重圧の中で、人々は日々の暮らしに追われながらも、神がいつイスラエルを救われるのかを待ち望んでいた。</p>
+    <p>シモンもまた、そうした時代の空気の中で生きていた一人であった。時に会堂で律法の朗読を聞きながら、彼は心のどこかで問い続けていたのではないだろうか。「神は、いつこの世界に介入されるのか」と。</p>
+  </div>
+
+  <!-- 3. 若きシモンの心 -->
+  <div class="section-block">
+    <h2>3. 若きシモンの心</h2>
+    <span class="badge meditation">黙想</span>
+    <p>後に、ペトロは、新約聖書の中でも最も人間味あふれる人物で、情熱的で衝動的な人物として描かれる。しかしその激しさの奥には、深い誠実さがあった。</p>
+    <p>ペトロは家庭を持ち、義母の看病をし、漁で家族を養っていた。つまり、彼は“生活者”だった。だからこそ、彼の語る希望や信仰は、現実の痛みを知った言葉だった。世界を動かすのは、特別な環境にいる人ではなく、日常の重さを知る人なのかもしかもしれない。</p>
+  </div>
+
+  <!-- 4. まだイエスを知らなかった頃 -->
+  <div class="section-block">
+    <h2>4. まだイエスを知らなかった頃</h2>
+    <span class="badge meditation">黙想</span>
+    <p>ガリラヤ湖の朝は早い。シモンは夜明け前に舟を出し、網を打ち、魚をより分け、また翌日の準備をした。来る日も来る日も同じ生活である。ペトロには家族がいた。彼は漁によって生計を立て、義母の病を気遣いながら日々を生きていた。</p>
+    <p>彼は特別な世界の人ではなかった。日々の暮らしの重さを知る一人の生活者であった。ローマの支配は重く、税は厳しく、人々の暮らしに余裕はなかった。それでも彼は働かなければならなかった。家族を養うためである。</p>
+    <p>だが、そんな日々の中でも、彼の心には消えない問いがあったのではないだろうか。「神は本当に、この苦しみをご覧になっているのか。」と。会堂で律法を聞きながら、彼は救い主の到来を待ち望んでいたかもしれない。しかしその時、彼はまだ知らなかった。やがて自分が、歴史を変える一人の人物と出会うことを。</p>
+  </div>
+
+  <!-- ベトサイダ（遺跡） -->
+  <div class="info-card">
+    <h3>◎ ベトサイダ(遺跡) <small style="font-size: 0.8rem; font-weight: normal;">(筆者撮影)</small></h3>
+    <p>ベトサイダは、ガリラヤ湖畔の小さな漁村で、ペトロの生まれ故郷。ペトロ、アンデレ、フィリポら最初の弟子たちは、この地で日々の生活を送りながら成長した。</p>
+    <p>現在は湖岸から離れているが、イエスの時代にはすぐ近くまで水辺が広がっていたと考えられている。そこには弟子たちの生活を知る手掛かりがある。ベトサイダは直訳すると「漁師の家」であるが、実際に魚釣りには最適な場所であった。</p>
+  </div>
+
+  <div class="photo-grid">
+    <div class="photo-card">
+      <img src="../img/betsaida1.png" alt="かつて湖畔に接していたベトサイダ跡">
+      <div class="caption">かつて湖畔に接していたベトサイダ跡</div>
+    </div>
+    <div class="photo-card">
+      <img src="../img/betsaida2.png" alt="ペトロやフィリポの家族が住んでいたと伝えられる住居跡">
+      <div class="caption">ペトロやフィリポの家族が住んでいたと伝えられる住居跡</div>
+    </div>
+    <div class="photo-card">
+      <img src="../img/betsaida3.png" alt="「人間をとる漁師にしよう」の言葉が刻まれた石碑">
+      <div class="caption">「人間をとる漁師にしよう」の言葉が刻まれた石碑</div>
+    </div>
+  </div>
+
+  <!-- カファルナウム（遺跡） -->
+  <div class="info-card">
+    <h3>◎ カファルナウム(遺跡) <small style="font-size: 0.8rem; font-weight: normal;">(筆者撮影)</small></h3>
+    <p>イエスの時代、人口は約200家族、1800〜2000名ほどの当時としては大きな町であった。後、ペトロは、カファルナウムに移り住み、ペトロの家の一室にイエスが住んでいたと言われている。</p>
+    <p>カファルナウムは、生活と召命の舞台である。イエスがガリラヤでの宣教活動の“本拠地”とした町であり、奇跡・教え・弟子たちとの生活が最も濃密に展開した場所である。ナザレを離れたイエスが「自分の町」と呼んだ唯一の場所でもあり、初期キリスト教の中心地のひとつとなった。</p>
+    <p>カファルナウムでは、役人の息子の癒し、「いのちのパン」の説教、そして徴税人マタイの召命など、多くの出来事が深く結びついている。</p>
+  </div>
+
+  <div class="photo-grid">
+    <div class="photo-card">
+      <img src="../img/capernaum1.png" alt="ペトロ像">
+      <div class="caption">
+        <header>カファルナウム入口近くに立つペトロ像</header>
+        漁師であったペトロは、「人間をとる漁師」として召された。像が手にする鍵は、「天の国の鍵をあなたに授ける」というイエスの言葉を象徴している。
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="../img/capernaum2.png" alt="聖ペトロの家教会">
+      <div class="caption">
+        <header>ペトロの家と伝承される場所 (聖ペトロの家教会)</header>
+        1世紀の普通の家が、2世紀以降“家の教会”として用いられている。5世紀には八角形教会に改築され、現在はガラス床の近代的教会が覆っている。
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="../img/capernaum3.png" alt="ペトロの家跡（石の囲い）">
+      <div class="caption">
+        <header>2000年前の「ペトロの家」跡</header>
+        石を積み上げた四角形の小さな囲いがある。かつての「ペトロの家」の上に、今、カトリックの教会が建てられており、イエスが滞在しペトロの義母を癒した“生活の場”であった。
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
