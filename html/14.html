@@ -31,7 +31,19 @@
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
+   /* ==========================================
+       スクロール連動アニメーションの設定
+       ========================================== */
+    .container > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transitio n: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
 
+    .container > *.is-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
     h1 {
       color: var(--primary-color);
       font-size: 1.8rem;

@@ -47,7 +47,19 @@
       border-left: 4px solid var(--accent-color);
       padding-left: 10px;
     }
+   /* ==========================================
+       スクロール連動アニメーションの設定
+       ========================================== */
+    .container > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transitio n: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
 
+    .container > *.is-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
     p {
       margin-top: 5px;
       margin-bottom: 15px;
@@ -153,6 +165,27 @@
   <p>この教会は、フランチェスコ修道会が管理しているそうだ。</p>
 
 </div>
+<!-- スクロールアニメーション用スクリプト -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const targets = document.querySelectorAll(".container > *");
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-show");
+          // 一度表示したら監視を終了する場合コメントを外す
+          // observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1 // 要素が10%見えたら発火
+    });
 
+    targets.forEach(target => {
+      observer.observe(target);
+    });
+  });
+</script>
 </body>
 </html>
