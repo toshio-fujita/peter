@@ -38,16 +38,24 @@
     box-sizing: border-box;
   }
 
-  body {
+  html, body {
     margin: 0;
-    padding: 0 16px; /* 上下のパディングをなくし、左右のみに設定 */
+    padding: 0;
+    width: 100%;
+    /* 100dvhを使うことでスマホのアドレスバー等を含まない実画面の高さに合わせる */
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  body {
+    padding: 0 16px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: var(--bg-gradient);
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-primary);
+    overflow: hidden; /* スクロールを発生させず画面内に収める */
   }
 
   /* メインのカード枠 */
@@ -56,7 +64,7 @@
     max-width: 480px;
     width: 100%;
     border-radius: 20px;
-    padding: 32px 24px;
+    padding: 24px;
     box-shadow: var(--shadow-lg);
     text-align: center;
     backdrop-filter: blur(10px);
@@ -81,7 +89,7 @@
 
   /* 表紙画像コンテナ */
   .cover-container {
-    margin-bottom: 28px;
+    margin-bottom: 20px;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
@@ -105,7 +113,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   /* 目次へ進むボタン */
@@ -115,7 +123,7 @@
     justify-content: center;
     gap: 8px;
     width: 100%;
-    padding: 14px 24px;
+    padding: 12px 24px;
     background-color: var(--accent-color);
     color: #ffffff;
     font-size: 1rem;
@@ -139,9 +147,9 @@
   }
 
   .redirect-text {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .progress-bar-bg {
@@ -179,17 +187,11 @@
   /* スマホ微調整 */
   @media (max-width: 480px) {
     body {
-      padding: 0 12px; /* スマホ時は左右のパディングを少し狭くして画面を広く活用 */
+      padding: 0 10px;
     }
     .main-card {
-      padding: 24px 18px;
+      padding: 20px 16px;
       border-radius: 16px;
-    }
-    .site-title {
-      font-size: 1.5rem;
-    }
-    .site-subtitle {
-      font-size: 0.875rem;
     }
   }
 </style>
