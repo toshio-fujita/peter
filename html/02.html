@@ -13,7 +13,6 @@
       --text-color: #333333;
       --border-color: #e2e8f0;
     }
-
     body {
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
       line-height: 1.8;
@@ -22,7 +21,6 @@
       margin: 0;
       padding: 20px 10px;
     }
-
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -31,7 +29,6 @@
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
-
     h1 {
       font-size: 1.8rem;
       color: var(--primary-color);
@@ -40,7 +37,6 @@
       margin-top: 0;
       margin-bottom: 30px;
     }
-
     h2 {
       font-size: 1.3rem;
       color: var(--primary-color);
@@ -50,11 +46,9 @@
       align-items: center;
       gap: 10px;
     }
-
     .section-block {
       margin-bottom: 30px;
     }
-
     .badge {
       display: inline-block;
       font-size: 0.75rem;
@@ -65,23 +59,18 @@
       color: #0288d1;
       margin-bottom: 12px;
     }
-
     .badge.meditation {
       background-color: #f3e5f5;
       color: #7b1fa2;
     }
-
-
     .badge.commentary {
       background-color: #e8f5e9;
       color: #2e7d32;
     }
-
     p {
       margin: 0 0 1em 0;
       text-align: justify;
     }
-
     .info-card {
       background-color: #f0f7ff;
       border-left: 5px solid var(--accent-color);
@@ -89,20 +78,17 @@
       margin: 30px 0 15px 0;
       border-radius: 0 8px 8px 0;
     }
-
     .info-card h3 {
       margin-top: 0;
       color: #1976d2;
       font-size: 1.2rem;
     }
-
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       margin: 20px 0 40px 0;
     }
-
     .photo-card {
       border: 1px solid var(--border-color);
       border-radius: 8px;
@@ -110,27 +96,23 @@
       background: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-
     .photo-card img {
       width: 100%;
       height: 180px;
-      object-fit: cover;
+      object-fit: contain; /* 見切れを防ぐため contain に変更しています */
       display: block;
-      background-color: #eee;
+      background-color: #f9f9f9;
     }
-
     .photo-card .caption {
       padding: 12px;
       font-size: 0.85rem;
       color: #555;
     }
-
     .photo-card .caption header {
       font-weight: bold;
       margin-bottom: 4px;
       color: #333;
     }
-
     @media (max-width: 600px) {
       .container {
         padding: 20px 15px;
@@ -142,7 +124,6 @@
   </style>
 </head>
 <body>
-
 <div class="container">
   <h1>第2章 イエスとの出会いと召命（弟子としての歩み）</h1>
 
@@ -157,7 +138,7 @@
   <!-- 2. イエスとペトロの出会い -->
   <div class="section-block">
     <h2>2. イエスとペトロの出会い ― ヨハネの福音書1章35節〜42節 ―</h2>
-    
+        
     <h3>(1) 最初の出会い</h3>
     <span class="badge">史実</span>
     <p>イエスとペトロの最初の出会いについては、福音書ごとに異なる視点から記されている。師であるヨハネが、イエスが歩いておられるのを見て「見よ、神の小羊」と言う。それを聞いた二人の弟子がイエスに従った。そのうちの一人はアンデレであり、もう一人は名前が記されていないが、この福音書の著者であるヨハネであると伝統的に考えられている。</p>
@@ -204,8 +185,7 @@
       <img src="../img/miraculous_draught.png" alt="『奇跡の漁』 ラファエロ">
       <div class="caption">
         <header>『奇跡の漁』 ラファエロ (ビクトリア・アンド・アルバート博物館 1515年)</header>
-        イタリアバチカンにあるシスティーナ礼拝堂で特別な儀式のときに飾られるタペストリーの下絵の一つ。
-        弟子たちは漁のベテランであり、このような時間・場所に魚がいないことを知っていたはずだが、イエスの言葉通り網をおろすと大漁になった。イエスの神性に驚き跪くペトロと、弟アンデレ、ヤコブ、ヨハネらが描かれている。
+        イタリアバチカンにあるシスティーナ礼拝堂で特別な儀式のときに飾られるタペストリーの下絵の一つ。弟子たちは漁のベテランであり、このような時間・場所に魚がいないことを知っていたはずだが、イエスの言葉通り網をおろすと大漁になった。イエスの神性に驚き跪くペトロと、弟アンデレ、ヤコブ、ヨハネらが描かれている。
       </div>
     </div>
 
@@ -225,6 +205,7 @@
     <span class="badge meditation">黙想</span>
     <p>このように見ると、ペトロの召命は単なる職業の転換ではなく、自己認識の変化と信仰の目覚めを伴う出来事であったと理解することができる。</p>
     <p>なお、ペトロ（生没年不詳〜67年頃とされる）は、イエスの最も重要な弟子の一人であり、十二使徒の中でも中心的な役割を果たした。彼はイエスを「メシア、生ける神の子」と告白した人物として知られている（マタイ16章）。この告白は、後の教会においても重要な意味を持つものとなった。</p>
+    
     <p style="margin-top: 15px; font-style: italic; color: #666;">※以下は福音書の記述に基づく黙想的再構成である。</p>
     <p>それからしばらくして――湖の上で、再びその人と出会う。</p>
     <p>夕暮れのガリラヤ湖は、静かに赤く染まっていた。沈みゆく太陽が水面を照らし、まるで広い血の海のように揺れている。</p>
@@ -236,32 +217,34 @@
     <p>その瞬間、ペトロの中で何かが崩れた。誇りも、自信も、経験も。ただ一つ残ったのは、畏れだった。</p>
     <p>「主よ、私から離れてください。」</p>
     <p>しかし、その人は離れなかった。「恐れることはない。」その言葉は、彼の恐れを包み込んだ。</p>
-    <p>「シモン、わたしについて来なさい。」<br>「今から後、あなたは人間をとる漁師になる。」</p>
+    <p>「シモン、わたしについて来なさい。<br>「今から後、あなたは人間をとる漁師になる。」</p>
     <p>そのまなざしに触れたとき、ペトロの心の奥深くで何かが確かに動いた。その時、ペトロは悟った。この方こそ、自分が求めていた方である――理由は分からないが、そう確信した。ペトロは思わずひれ伏した。「主よ、わたしはふさわしい者ではありません。」</p>
     <p>しかし、その人は静かに言われた。「恐れることはない。」その言葉は、不思議な力をもってペトロの内に響いた。責めるのではなく、受け入れる声だった。</p>
     <p>「今から後、あなたは人をとる漁師になる。」</p>
     <p>ペトロは顔を上げた。湖も、舟も、これまでの生活も、すべてがそこにあった。しかし同時に、まったく新しい道が、自分の前に開かれていることを感じた。彼は立ち上がった。彼は網を置いた。舟を陸に引き上げ離れた。そして――何もかも捨ててイエスに従った。</p>
-       <div class="photo-card" style="margin: 20px 0;">
-      <img src="../img/calling_1.png"" alt="弟子たちの召命（漁師を弟子として召されるイエス）">
+       
+    <div class="photo-card" style="margin: 20px 0;">
+      <img src="../img/calling_1.png" alt="弟子たちの召命（漁師を弟子として召されるイエス）">
       <div class="caption">
         <header>弟子たちの召命（漁師を弟子として召されるイエス）</header>
       </div>
     </div>
+
     <div class="info-card">
       <h3>◎ 解説</h3>
       <p>ペトロは、自分のような罪深い者はイエスの弟子として失格したと早合点して、一生、漁師として生きて行こうと決心していた。ところがイエスは、ペトロに「恐れることはない」（ルカ5章10節）という慰めのことばだけでなく、「人間をとる漁師にしよう」（マタイ4章19節）という弟子として仕えることへの召命のことばをかけてくださった。</p>
       <p>イエスのことばを聞いたペトロは、思わず耳を疑ったことでしょう。しかしそれは紛れもない事実であった。ほんとうの弟子になることができるという喜びを胸にこみあげてきたことであろう。それで「何もかも捨てて、イエスに従った」のである（ルカ5章11節）。</p>
       <p>こうして「ペトロは、おびただしい魚を網の中に捕えながら、彼自身はキリストの網の中に捕えられたのである。」</p>
     </div>
- <div class="photo-card" style="margin: 20px 0;">
-      <img src="../img/miraculous_draught2.png" alt="ペトロの船から語られるイエス<">
+
+    <div class="photo-card" style="margin: 20px 0;">
+      <img src="../img/miraculous_draught2.png" alt="ペトロの船から語られるイエス">
       <div class="caption">
         <header>ペトロの船から語られるイエス</header>
         ペトロ・アンデレ・ヤコブ・ヨハネを召命する
       </div>
+    </div>
   </div>
-
 </div>
-
 </body>
 </html>
