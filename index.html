@@ -40,7 +40,7 @@
 
   body {
     margin: 0;
-    padding: 24px 16px;
+    padding: 0 16px; /* 上下のパディングをなくし、左右のみに設定 */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: var(--bg-gradient);
     min-height: 100vh;
@@ -179,7 +179,7 @@
   /* スマホ微調整 */
   @media (max-width: 480px) {
     body {
-      padding: 16px;
+      padding: 0 12px; /* スマホ時は左右のパディングを少し狭くして画面を広く活用 */
     }
     .main-card {
       padding: 24px 18px;
