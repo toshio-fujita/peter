@@ -2,110 +2,203 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<!-- スマホ表示に対応させるための表示設定（ビューポート） -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>目次</title>
 <style>
-  /* 全体のスタイル設定 */
-  body {
-    margin: 0;
-    padding: 20px 16px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f9f9f9;
+  /* --- デザイン変数（カラー・スタイルを一括管理） --- */
+  :root {
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-blue: #2563eb;
+    --accent-indigo: #4f46e5;
+    --part-bg: #f1f5f9;
+    --part-border: #cbd5e1;
+    --hover-bg: #f8fafc;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
   }
 
-  /* 中央寄せのコンテンツ枠（PCでは最大幅を設定して読みやすく） */
+  /* --- ベーススタイル --- */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 32px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    background-color: var(--bg-main);
+    min-height: 100vh;
+  }
+
+  /* --- メインカード容器 --- */
   .container {
     max-width: 680px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: var(--card-bg);
+    padding: 36px 32px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
   }
 
+  /* --- ヘッダー --- */
   h1 {
     text-align: center;
-    font-size: 1.6rem;
-    margin-top: 0;
-    margin-bottom: 16px;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    position: relative;
+    padding-bottom: 12px;
   }
 
-  /* 注釈テキスト */
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-indigo));
+    border-radius: 2px;
+  }
+
+  /* --- 案内通知ブロック（モダンバッジ風） --- */
   .notice {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #555;
-    background-color: #f0f4f8;
-    padding: 12px;
-    border-radius: 6px;
-    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #1e40af;
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 28px;
   }
 
-  /* 目次リストのベース設定 */
+  .notice-icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  /* --- 目次リスト --- */
   .toc-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  /* リンクの共通スタイル（タップしやすく広めの余白） */
+  /* --- リンク基本設定 --- */
   .toc-list a {
-    display: block;
-    padding: 8px 12px;
-    color: #0056b3;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.2s;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
   }
 
-  /* タップ/ホバー時の背景色変更 */
-  .toc-list a:hover,
-  .toc-list a:active {
-    background-color: #e9ecef;
-    text-decoration: underline;
+  /* 右矢印アイコンを擬似要素で付与 */
+  .toc-list a::after {
+    content: '→';
+    position: absolute;
+    right: 14px;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
   }
 
-  /* 階層ごとのインデント調整（レスポンシブ） */
-  /* レベル1: 部（大きな見出し） */
+  .toc-list a:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* --- レベル1（部・セクション見出し） --- */
   .level-1 {
-    font-weight: bold;
-    margin-top: 16px;
+    margin-top: 20px;
     margin-bottom: 4px;
   }
+
+  .level-1:first-child {
+    margin-top: 0;
+  }
+
   .level-1 a {
-    color: #111;
-    background-color: #f1f3f5;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-blue);
   }
 
-  /* レベル2: 章・序言など */
-  .level-2 {
-    padding-left: 1rem;
+  .level-1 a:hover {
+    background: #e2e8f0;
+    color: var(--accent-blue);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
   }
 
-  /* レベル3: ナビゲーション（表紙へ戻る） */
-  .nav-back {
-    margin-top: 32px;
-    border-top: 1px solid #eee;
-    padding-top: 16px;
-  }
-  .nav-back a {
-    color: #495057;
-    font-weight: bold;
+  /* --- レベル2（各章・序言など） --- */
+  .level-2 a {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    color: #334155;
+    border: 1px solid transparent;
   }
 
-  /* スマホ画面向けの余白微調整 */
-  @media (max-width: 480px) {
+  .level-2 a:hover {
+    background-color: var(--hover-bg);
+    color: var(--accent-blue);
+    border-color: var(--border-color);
+    padding-left: 20px; /* ホバー時に少し右へスライド */
+  }
+
+  /* 序章・刊行のことば用の区切線 */
+  .section-divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 12px 0;
+  }
+
+  /* --- レスポンシブ対応 --- */
+  @media (max-width: 640px) {
     body {
-      padding: 12px 8px;
-    }
-    .container {
       padding: 16px 12px;
     }
-    .level-2 {
-      padding-left: 0.5rem; /* スマホではインデントを浅くして文字幅を確保 */
+    .container {
+      padding: 24px 18px;
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    .notice {
+      font-size: 0.8rem;
+      padding: 10px 12px;
+    }
+    .level-1 a {
+      font-size: 0.95rem;
+      padding: 10px 12px;
+    }
+    .level-2 a {
+      font-size: 0.875rem;
+      padding: 8px 12px;
     }
   }
 </style>
@@ -116,41 +209,52 @@
   <h1>目 次</h1>
 
   <div class="notice">
-    各章を読み終えたら、画面左上の「←（戻る）」で目次に戻れます。
+    <span class="notice-icon">💡</span>
+    <span>各章を読み終えたら、ブラウザの「戻る」ボタンで目次に戻れます。</span>
   </div>
 
   <ul class="toc-list">
-    <li class="level-2"><a href="img/Foreword.pdf">刊行のことば</a></li>
-    <li class="level-2"><a href="img/Introduction.pdf">はじめに</a></li>
-    <li class="level-2"><a href="img/Prologue.pdf">序章</a></li>
+    <!-- 前書セクション -->
+    <li class="level-2"><a href="html/Foreword.html">刊行のことば</a></li>
+    <li class="level-2"><a href="html/Introduction.html">はじめに</a></li>
+    <li class="level-2"><a href="html/Prologue.html">序章</a></li>
 
-    <li class="level-1"><a href="img/part1.pdf">第一部 弟子として形成されるペトロ</a></li>
+    <li class="section-divider"></li>
+
+    <!-- 第一部 -->
+    <li class="level-1"><a href="html/part1.html">第一部 弟子として形成されるペトロ</a></li>
     <li class="level-2"><a href="html/01.html">第1章 ペトロの生い立ち</a></li>
-    <li class="level-2"><a href="img/02.pdf">第2章 イエスとの出会いと召命</a></li>
-    <li class="level-2"><a href="img/03.pdf">第3章 十二弟子の選定</a></li>
-    <li class="level-2"><a href="img/04.pdf">第4章 ペトロの信仰成長と服従</a></li>
-    <li class="level-2"><a href="img/05.pdf">第5章 フィリポ・カイサリア地方にて</a></li>
-    <li class="level-2"><a href="img/06.pdf">第6章 ペトロの越権行為</a></li>
-    <li class="level-2"><a href="img/07.pdf">第7章 ペトロの慢心と警告</a></li>
-    <li class="level-2"><a href="img/08.pdf">第8章 ペトロの三度の否認</a></li>
+    <li class="level-2"><a href="html/02.html">第2章 イエスとの出会いと召命</a></li>
+    <li class="level-2"><a href="html/03.html">第3章 十二弟子の選定</a></li>
+    <li class="level-2"><a href="html/04.html">第4章 ペトロの信仰成長と服従</a></li>
+    <li class="level-2"><a href="html/05.html">第5章 フィリポ・カイサリア地方にて</a></li>
+    <li class="level-2"><a href="html/06.html">第6章 ペトロの越権行為</a></li>
+    <li class="level-2"><a href="html/07.html">第7章 ペトロの慢心と警告</a></li>
+    <li class="level-2"><a href="html/08.html">第8章 ペトロの三度の否認</a></li>
 
-    <li class="level-1"><a href="img/part2.pdf">第二部 使徒として神に用いられる壮年のペトロ</a></li>
-    <li class="level-2"><a href="img/09.pdf">第9章 復活のイエスの顕現とペトロ</a></li>
-    <li class="level-2"><a href="img/10.pdf">第10章 マティアの選出</a></li>
-    <li class="level-2"><a href="img/11.pdf">第11章 聖霊降誕とペトロの説教</a></li>
-    <li class="level-2"><a href="img/12.pdf">第12章 最初の教会の誕生</a></li>
-    <li class="level-2"><a href="img/13.pdf">第13章 美しい門での奇跡と神殿でのペトロの説教</a></li>
-    <li class="level-2"><a href="img/14.pdf">第14章 ペトロとヨハネ、議会で取り調べを受ける</a></li>
-    <li class="level-2"><a href="img/15.pdf">第15章 エルサレム教会への大迫害とサマリア伝道</a></li>
-    <li class="level-2"><a href="img/16.pdf">第16章 カイサリアの伝道</a></li>
-    <li class="level-2"><a href="img/17.pdf">第17章 ペトロの投獄と救出</a></li>
-    <li class="level-2"><a href="img/18.pdf">第18章 エルサレム会議（ペトロとパウロ）</a></li>
+    <!-- 第二部 -->
+    <li class="level-1"><a href="html/part2.html">第二部 使徒として神に用いられる壮年のペトロ</a></li>
+    <li class="level-2"><a href="html/09.html">第9章 復活のイエスの顕現とペトロ</a></li>
+    <li class="level-2"><a href="html/10.html">第10章 マティアの選出</a></li>
+    <li class="level-2"><a href="html/11.html">第11章 聖霊降誕とペトロの説教</a></li>
+    <li class="level-2"><a href="html/12.html">第12章 最初の教会の誕生</a></li>
+    <li class="level-2"><a href="html/13.html">第13章 美しい門での奇跡と神殿でのペトロの説教</a></li>
+    <li class="level-2"><a href="html/14.html">第14章 ペトロとヨハネ、議会で取り調べを受ける</a></li>
+    <li class="level-2"><a href="html/15.html">第15章 エルサレム教会への大迫害とサマリア伝道</a></li>
+    <li class="level-2"><a href="ihtml/16.html">第16章 カイサリアの伝道</a></li>
+    <li class="level-2"><a href="html/17.html">第17章 ペトロの投獄と救出</a></li>
+    <li class="level-2"><a href="html/18.html">第18章 エルサレム会議（ペトロとパウロ）</a></li>
 
-    <li class="level-1"><a href="img/part3.pdf">第三部{長老の使徒として円熟した晩年のペトロ</a></li>
-    <li class="level-2"><a href="img/19.pdf">第19章 ペトロの晩年と成熟した信仰</a></li>
-    <li class="level-2"><a href="img/20.pdf">最終章 ペトロの信仰の完成と殉教</a></li>
-    <li class="level-2"><a href="img/Appendix.pdf">付 録 十二使徒紹介</a></li>
-    <li class="level-2"><a href="img/Afterword.pdf">あとがき</a></li>
+    <!-- 第三部（誤字「第三部{長老...」を「第三部 長老...」に修正） -->
+    <li class="level-1"><a href="html/part3.html">第三部 長老の使徒として円熟した晩年のペトロ</a></li>
+    <li class="level-2"><a href="html/19.html">第19章 ペトロの晩年と成熟した信仰</a></li>
+    <li class="level-2"><a href="html/20.html">最終章 ペトロの信仰の完成と殉教</a></li>
+
+    <li class="section-divider"></li>
+
+    <!-- 付録・後書 -->
+    <li class="level-2"><a href="html/Appendix.html">付 録 十二使徒紹介</a></li>
+    <li class="level-2"><a href="html/Afterword.html">あとがき</a></li>
   </ul>
 </div>
 
