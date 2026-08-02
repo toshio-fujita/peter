@@ -133,6 +133,20 @@
         font-size: 1.5rem;
       }
     }
+    /* ==========================================
+       スクロール連動アニメーションの設定
+       ========================================== */
+    .container > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    /* スクロールして画面内に入ったときに適用されるクラス */
+    .container > *.is-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
