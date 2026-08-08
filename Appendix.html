@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>付録 十二使徒紹介(伝承と殉教地) - ペトロの生涯</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* 解説部分のレイアウト用CSS */
+    .commentary-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-start;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 30px; /* カード間の余白 */
+    }
+
+    .commentary-text {
+      flex: 1;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .commentary-image {
+      flex: 0 0 200px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .commentary-image img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    /* apostle-card 内の p タグのマージンをリセットして調整 */
+    .apostle-card p {
+      margin-top: 0;
+      margin-bottom: 1em;
+      line-height: 1.6;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-top: 30px;
+    }
+
+    .photo-card {
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .photo-card img {
+      width: 100%;
+      max-width: 100%;
+      height: 300px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+      box-sizing: border-box;
+    }
+
+    .caption {
+      max-width: 100%;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    
+    .caption header {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    .apostle-card {
+      background: #fff;
+      border: 1px solid var(--border-color, #eee); /* 変数fallback追加 */
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .apostle-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--accent-color, #333); /* 変数fallback追加 */
+      font-size: 1.2rem;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: #555;
+      background: #f9f9f9;
+      padding: 8px 12px;
+      border-left: 3px solid var(--accent-color, #999); /* 変数fallback追加 */
+      margin-bottom: 15px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ページネーションのスタイル（元コードになかったため追加・調整用） */
+    .pagination-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .page-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #333;
+        background: #fff;
+        cursor: pointer;
+    }
+    .page-btn:hover { background: #f5f5f5; }
+    .icon { width: 18px; height: 18px; }
+
+    /* モバイル表示時の調整 */
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px; /* 全体の余白を少し詰める */
+      }
+
+      .apostle-card {
+        padding: 15px;
+      }
+
+      /* スマホでは縦並びにする */
+      .commentary-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .commentary-image {
+        width: 100%;
+        flex: none;
+        order: -1; /* 画像を上に配置 */
+        text-align: center;
+      }
+
+      .commentary-image img {
+        margin: 0 auto;
+        max-width: 80%; /* 画像サイズを画面幅の80%に */
+        height: auto;
+      }
+
+      .commentary-text {
+        width: 100%;
+        flex: none;
+        /* ★ここが重要：テキストを左揃えにする */
+        text-align: left;
+      }
+      
+      /* スマホ時の文字サイズ調整など */
+      .apostle-card h3 { font-size: 1.1rem; }
+      .meta { font-size: 0.8rem; }
+      .commentary-text p { font-size: 0.95rem; }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .photo-card img {
+        height: auto; /* スマホでは縦横比を維持 */
+        max-height: 250px;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+      
+      .pagination-container {
+          margin-top: 30px;
+      }
+      .page-btn { padding: 6px 12px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>付録 十二使徒紹介(伝承と殉教地)</h1>
+
+  <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>ペトロ (シモン・ペトロ)</h3>
+    <div class="meta">●アンデレの兄 ●漁師 ●ガリラヤ・ベトサイダ出身 (のちカファルナウム在住)</div>
+    <p>湖で網を打っていた漁師が、やがて世界を揺るがす指導者へ。衝動的で失敗も多いが、誰よりも熱い心の持ち主。イエスから「岩(ペトロ)」と名を与えられ、「天の国の鍵」を託されたと福音書に記される。</p>
+    <p>使徒言行録では初期教会の中心人物。ローマで宣教し、ネロ帝の迫害下で逆さ十字架で殉教したという話は古い教会伝承に伝えられる。後に「初代教皇」と呼ばれる存在となった。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/0.jpg" alt="ペトロ (シモン・ペトロ)">
+  </div>
+</div>
+  </div>
+
+   <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>アンデレ</h3>
+    <div class="meta">●ペトロの弟 ●漁師 ●ガリラヤ・ベトサイダ出身</div>
+    <p>湖で網を打っていた漁師が、やがて世界を揺るがす指導者へ。衝動的で失敗も多いが、誰よりも熱い心の持ち主。イエスから「岩(ペトロ)」と名を与えられ、「天の国の鍵」を託されたと福音書に記される。</p>
+    <p>兄ペトロをイエスに引き合わせた“つなぐ人”。もとは洗礼者ヨハネの弟子で、最初にイエスに従った一人と福音書に記される。前に出るよりも、誰かを導く静かな情熱家。復活後の詳しい活動は聖書にないが、ギリシアで宣教し、ギリシアのある町で宣教中、総督の妻をキリスト教に導いたため、総督の怒りを買い、X字型の十字架にかけられ殉教したと伝承に語り継がれている。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/3.jpg" alt="アンデレ">
+  </div>
+</div>
+  </div>
+
+  
+   <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>大ヤコブ (ゼベダイの子ヤコブ)</h3>
+    <div class="meta">●ヨハネの兄/ゼベダイの子 ●漁師 ●ガリラヤ出身</div>
+    <p>イエスから「雷の子」と呼ばれたほどの激しさを持つ。使徒言行録には、王ヘロデ(ヘロデ・アグリッパ1世) によって斬首されたと記され、十二使徒の中で最初に殉教した人物とされる。遺体はスペインに運ばれ、守護聖人となったと伝えられている。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/1.jpg" alt="大ヤコブ (ゼベダイの子ヤコブ)">
+  </div>
+</div>
+  </div>
+
+     <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>ヨハネ</h3>
+    <div class="meta">●大ヤコブの弟/ゼベダイの子 ●漁師 ●ガリラヤ出身</div>
+    <p>「愛された弟子」と呼ばれる繊細で深い人物。十字架の場面にも立ち会ったと福音書に記される。使徒言行録では教会の柱の一人。晩년에パトモス島へ流され、『ヨハネの黙示録』を書いたといわれる。十二使徒の中で最も長寿であったと伝えられている。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/2.jpg" alt="ヨハネ">
+  </div>
+</div>
+  </div>
+
+       <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>フィリポ</h3>
+    <div class="meta">●バルトロマイの友人 ●ガリラヤのベトサイダ出身</div>
+    <p>理性的で現実的なタイプ。群衆の食事を心配する姿や、ギリシア人をイエスに紹介する場面が福音書に描かれる。復活後の活動は聖書に詳しくないが、各地で宣教し、ヒエラポリスで石打ちの刑にされ殉教したと伝承に残る。静かだが重要な橋渡し役だった。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/4.jpg" alt="フィリポ">
+  </div>
+</div>
+  </div>
+
+         <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>バルトロマイ (ナタナエル)</h3>
+    <div class="meta">●バルトロマイの友人 ●ガリラヤのベトサイダ出身</div>
+    <p>「これぞ本物のイスラエル人」とイエスに称えられた誠実な人物。福音書ではナタナエルと呼ばれ、バルトロマイと同一人物とするのは教会伝承による。インドやアルメニア方面で宣教したと伝えられ、アルメニアで皮をはがれて殉教したという壮絶な物語も語り継がれている。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/5.jpg" alt="バルトロマイ (ナタナエル)">
+  </div>
+</div>
+  </div>
+
+           <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>トマス</h3>
+    <div class="meta">●ユダ・トマス・ディディモ ●職業不詳 ●ガリラヤ出身</div>
+    <p>疑い深いと言われるが、誰よりも正直な求道者。イエスの復活を疑ったことから「疑心のトマス」と呼ばれるが、最後には「わが主、わが神」と告白した姿が印象的。インドまで宣教に赴き、槍で殉教したという伝承が今も南インドに残る。疑いから始まる信仰の象徴的人物。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/6.jpg" alt="トマス">
+  </div>
+</div>
+  </div>
+
+           <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>マタイ (レビ)</h3>
+    <div class="meta">●徴税人</div>
+    <p>当時嫌われ者だった徴税人から使徒へ。イエスに招かれたとき、すべてを捨てて従ったと福音書に記される。『マタイによる福音書』の著者とされる。各地での宣教の末にエチオピアまたはトルコのヒエラポリスで殉教したとの伝承がある。過去を背負いながらも、新しい人生を歩んだ人物。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/7.jpg" alt="マタイ (レビ)">
+  </div>
+</div>
+  </div>
+
+             <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>タダイ</h3>
+    <div class="meta">●ユダ・タダイ/ヤコブの子ユダと同一人物とする説もある</div>
+    <p>最後の晩餐でイエスに質問した一人 (ヨハネ14章)。控えめながら、核心を突く問いを投げかけた人物。後代資料ではアルメニアで宣教し、棍棒・斧で殺害され殉教したと伝えられる。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/8.jpg" alt="タダイ">
+  </div>
+</div>
+  </div>
+
+               <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>小ヤコブ</h3>
+    <div class="meta">●アルファイの子/マタイとの兄弟関係を示す確実な記録はない</div>
+    <p>聖書では名前のみが多く語られる“静かな使徒”。目立つ場面は少ないが、だからこそ誠実に歩み続けた人物とも言われる。エルサレムの神殿で殉教したという伝承が残る。「小」という呼び名の理由もはっきりしないが、歴史の陰で支えた存在といえる。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/11.jpg" alt="小ヤコブ">
+  </div>
+</div>
+  </div>
+
+                 <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>熱心党のシモン</h3>
+    <div class="meta">●熱心党員(または熱心党に近い立場の人物)</div>
+    <p>「熱心党」と呼ばれ、かつては反ローマ運動に関わった可能性も指摘される人物。激しい時代を生きた革命家が、やがて福音の宣教者へ。復活後の詳細は聖書にないが、各地で宣教しペルシアで鋸で2つに切られて殉教したと伝えられる。情熱が方向を変えた象徴的存在。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/9.jpg" alt="熱心党のシモン">
+  </div>
+</div>
+  </div>
+
+                   <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>イスカリオテのユダ</h3>
+    <div class="meta">●十二使徒の一人</div>
+    <p>殺害をたくらむ反イエス派に銀貨三十枚でイエスを引き渡した人物 (マタイ26章)。裏切り者の代名詞とされるが、福音書はその後の深い後悔も伝える。最期については二つの記述 (首をつった、転落して体が裂けた)があり、謎も多い。光の物語の中に置かれた影の存在。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/10.jpg" alt="イスカリオテのユダ">
+  </div>
+</div>
+  </div>
+
+                     <div class="apostle-card">
+   <div class="commentary-container mt1">
+      <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <h3>マティア</h3>
+    <div class="meta">●十二使徒の一人</div>
+    <p>殺害をたくらむ反イエス派に銀貨三十枚でイエスを引き渡した人物 (マタイ26章)。裏切り者の代名詞とされるが、福音書はその後の深い後悔も伝える。最期については二つの記述 (首をつった、転落して体が裂けた)があり、謎も多い。光の物語の中に置かれた影の存在。</p>
+  </div>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1">
+    <img src="../img/Appendix/12.jpg" alt="マティア">
+  </div>
+</div>
+  </div>
+ 
+    <div class="photo-grid">
+    <div class="photo-card">
+      <img src="../img/Appendix/13.jpg" alt="老いたペトロの肖像">
+      <div class="caption">
+        <header>老いたペトロの肖像</header>
+        深いしわと、静かなまなざしが印象的です
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="../img/Appendix/14.jpg" alt="聖ペトロの家教会">
+      <div class="caption">
+        <header>ローマで殉教を前にしたペトロ</header>
+        「自分がこの仮の宿を間もなく離れなければならないことをよく承知している」
+（Ⅱペトロ１章１４節）を思わせます
+      </div>
+    </div>
+  </div>
+  
+
+   <div class="pagination-container">
+  <!-- 左側：戻るボタン -->
+  <button class="page-btn page-btn-prev" onclick="history.back()">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <span>戻る</span>
+  </button>
+  
+  <!-- 右側：次へボタン -->
+  <a href="Afterword.html" class="page-btn page-btn-next">
+    <span>次へ</span>
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </a>
+</div>
+
+</div>
+<!-- モーダルウィンドウ用のHTML -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="拡大画像">
+    <div id="modalCaption"></div>
+  </div>
+<script src="../js/script.js"></script>
+</body>
+</html>
