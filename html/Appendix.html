@@ -6,18 +6,38 @@
   <title>付録 十二使徒紹介(伝承と殉教地) - ペトロの生涯</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .photo-grid {
+.photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.photo-card {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .photo-card img {
   width: 100%;
+  max-width: 100%;
   height: 300px;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
   background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.caption {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
     .apostle-card {
       background: #fff;
@@ -89,12 +109,35 @@
       color: #555;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 15px;
-      }
-      h1 { font-size: 1.5rem; }
-    }
+   @media (max-width: 600px) {
+
+  .container {
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .photo-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .photo-card img {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    object-fit: contain;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
   </style>
 </head>
 <body>
