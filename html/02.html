@@ -4,65 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>第2章 イエスとの出会いと召命（弟子としての歩み）</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    :root {
-      --primary-color: #2c3e50;
-      --accent-color: #3498db;
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --border-color: #e2e8f0;
-    }
-    body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-      line-height: 1.8;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      margin: 0;
-      padding: 20px 10px;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-
-        /* ==========================================
-       スクロール連動アニメーションの設定
-       ========================================== */
-    .container > * {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .container > *.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h1 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      border-bottom: 3px solid var(--primary-color);
-      padding-bottom: 12px;
-      margin-top: 0;
-      margin-bottom: 30px;
-    }
-    h2 {
-      font-size: 1.3rem;
-      color: var(--primary-color);
-      margin-top: 35px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-block {
-      margin-bottom: 30px;
-    }
     .badge {
       display: inline-block;
       font-size: 0.75rem;
@@ -110,13 +53,11 @@
       background: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    .photo-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: contain; /* 見切れを防ぐため contain に変更しています */
-      display: block;
-      background-color: #f9f9f9;
-    }
+  .photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
     .photo-card .caption {
       padding: 12px;
       font-size: 0.85rem;
@@ -172,14 +113,14 @@
 
     <div class="photo-grid">
       <div class="photo-card">
-        <img src="../img/jesus_and_fishermen.png" alt="ペトロの船から語られるイエス">
+        <img src="../img/02/0.png" alt="ペトロの船から語られるイエス">
         <div class="caption">
           <header>ペトロの船から語られるイエス</header>
           湖畔の群衆に舟の上から教えを語られるイエス。
         </div>
       </div>
       <div class="photo-card">
-        <img src="../img/calling_disciples.png" alt="ペトロ・アンデレ・ヤコブ・ヨハネを召命する">
+        <img src="../img/02/1.jpg" alt="ペトロ・アンデレ・ヤコブ・ヨハネを召命する">
         <div class="caption">
           <header>弟子たちの召命</header>
           イエスがペトロ、アンデレ、ヤコブ、ヨハネを呼び寄せる場面。
@@ -195,8 +136,8 @@
     <p>常識的には期待できない状況であったが、彼らが従うと、おびただしい魚がかかり、網が破れそうになった（6節）。この出来事により、ペトロはイエスの前にひれ伏し、「主よ、私から離れてください。私は罪深い者です」（8節）と告白した。</p>
     <p>するとイエスは、「恐れることはない。今から後、あなたは人間をとる漁師になる」と言われた（10節）。そして彼らは舟を陸に引き上げ、すべてを捨ててイエスに従ったのである（11節）。</p>
 
-    <div class="photo-card" style="margin: 20px 0;">
-      <img src="../img/miraculous_draught.png" alt="『奇跡の漁』 ラファエロ">
+  <div class="image-card">
+      <img src="../img/02/2.png" alt="『奇跡の漁』 ラファエロ">
       <div class="caption">
         <header>『奇跡の漁』 ラファエロ (ビクトリア・アンド・アルバート博物館 1515年)</header>
         イタリアバチカンにあるシスティーナ礼拝堂で特別な儀式のときに飾られるタペストリーの下絵の一つ。弟子たちは漁のベテランであり、このような時間・場所に魚がいないことを知っていたはずだが、イエスの言葉通り網をおろすと大漁になった。イエスの神性に驚き跪くペトロと、弟アンデレ、ヤコブ、ヨハネらが描かれている。
@@ -237,8 +178,8 @@
     <p>「今から後、あなたは人をとる漁師になる。」</p>
     <p>ペトロは顔を上げた。湖も、舟も、これまでの生活も、すべてがそこにあった。しかし同時に、まったく新しい道が、自分の前に開かれていることを感じた。彼は立ち上がった。彼は網を置いた。舟を陸に引き上げ離れた。そして――何もかも捨ててイエスに従った。</p>
        
-    <div class="photo-card" style="margin: 20px 0;">
-      <img src="../img/calling_1.png" alt="弟子たちの召命（漁師を弟子として召されるイエス）">
+    <div class="image-card">
+      <img src="../img/02/3.jpg" alt="弟子たちの召命（漁師を弟子として召されるイエス）">
       <div class="caption">
         <header>弟子たちの召命（漁師を弟子として召されるイエス）</header>
       </div>
@@ -251,8 +192,8 @@
       <p>こうして「ペトロは、おびただしい魚を網の中に捕えながら、彼自身はキリストの網の中に捕えられたのである。」</p>
     </div>
 
-    <div class="photo-card" style="margin: 20px 0;">
-      <img src="../img/miraculous_draught2.png" alt="ペトロの船から語られるイエス">
+   <div class="image-card">
+      <img src="../img/02/4.jpg" alt="ペトロの船から語られるイエス">
       <div class="caption">
         <header>ペトロの船から語られるイエス</header>
         ペトロ・アンデレ・ヤコブ・ヨハネを召命する
@@ -260,27 +201,12 @@
     </div>
   </div>
 </div>
-<!-- スクロールアニメーション用スクリプト -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const targets = document.querySelectorAll(".container > *");
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-show");
-          // 一度表示したら監視を終了する場合コメントを外す
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1 // 要素が10%見えたら発火
-    });
-
-    targets.forEach(target => {
-      observer.observe(target);
-    });
-  });
-</script>
+<!-- モーダルウィンドウ用のHTML -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="拡大画像">
+    <div id="modalCaption"></div>
+  </div>
+<script src="../js/script.js"></script>
 </body>
 </html>

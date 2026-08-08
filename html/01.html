@@ -4,71 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>第1章 ペトロの生い立ち</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    :root {
-      --primary-color: #2c3e50;
-      --accent-color: #3498db;
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --border-color: #e2e8f0;
-    }
-
-    body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-      line-height: 1.8;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      margin: 0;
-      padding: 20px 10px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    /* ==========================================
-       スクロール連動アニメーションの設定
-       ========================================== */
-    .container > * {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .container > *.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      border-bottom: 3px solid var(--primary-color);
-      padding-bottom: 12px;
-      margin-top: 0;
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-      color: var(--primary-color);
-      margin-top: 35px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-block {
-      margin-bottom: 30px;
-    }
-
     .badge {
       display: inline-block;
       font-size: 0.75rem;
@@ -197,15 +134,15 @@
 
   <div class="photo-grid">
     <div class="photo-card">
-      <img src="../img/betsaida1.png" alt="かつて湖畔に接していたベトサイダ跡">
+      <img src="../img/01/0.jpg" alt="かつて湖畔に接していたベトサイダ跡">
       <div class="caption">かつて湖畔に接していたベトサイダ跡</div>
     </div>
     <div class="photo-card">
-      <img src="../img/betsaida2.png" alt="ペトロやフィリポの家族が住んでいたと伝えられる住居跡">
+      <img src="../img/01/1.jpg" alt="ペトロやフィリポの家族が住んでいたと伝えられる住居跡">
       <div class="caption">ペトロやフィリポの家族が住んでいたと伝えられる住居跡</div>
     </div>
     <div class="photo-card">
-      <img src="../img/betsaida3.png" alt="「人間をとる漁師にしよう」の言葉が刻まれた石碑">
+      <img src="../img/01/2.jpg" alt="「人間をとる漁師にしよう」の言葉が刻まれた石碑">
       <div class="caption">「人間をとる漁師にしよう」の言葉が刻まれた石碑</div>
     </div>
   </div>
@@ -220,21 +157,21 @@
 
   <div class="photo-grid">
     <div class="photo-card">
-      <img src="../img/capernaum1.png" alt="ペトロ像">
+      <img src="../img/01/3.jpg" alt="ペトロ像">
       <div class="caption">
         <header>カファルナウム入口近くに立つペトロ像</header>
         漁師であったペトロは、「人間をとる漁師」として召された。像が手にする鍵は、「天の国の鍵をあなたに授ける」というイエスの言葉を象徴している。
       </div>
     </div>
     <div class="photo-card">
-      <img src="../img/capernaum2.png" alt="聖ペトロの家教会">
+      <img src="../img/01/4.jpg" alt="聖ペトロの家教会">
       <div class="caption">
         <header>ペトロの家と伝承される場所 (聖ペトロの家教会)</header>
         1世紀の普通の家が、2世紀以降“家の教会”として用いられている。5世紀には八角形教会に改築され、現在はガラス床の近代的教会が覆っている。
       </div>
     </div>
     <div class="photo-card">
-      <img src="../img/capernaum3.png" alt="ペトロの家跡（石の囲い）">
+      <img src="../img/01/5.jpg" alt="ペトロの家跡（石の囲い）">
       <div class="caption">
         <header>2000年前の「ペトロの家」跡</header>
         石を積み上げた四角形の小さな囲いがある。かつての「ペトロの家」の上に、今、カトリックの教会が建てられており、イエスが滞在しペトロの義母を癒した“生活の場”であった。
@@ -243,29 +180,12 @@
   </div>
 
 </div>
-
-<!-- スクロールアニメーション用スクリプト -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const targets = document.querySelectorAll(".container > *");
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-show");
-          // 一度表示したら監視を終了する場合コメントを外す
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1 // 要素が10%見えたら発火
-    });
-
-    targets.forEach(target => {
-      observer.observe(target);
-    });
-  });
-</script>
-
+<!-- モーダルウィンドウ用のHTML -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="拡大画像">
+    <div id="modalCaption"></div>
+  </div>
+<script src="../js/script.js"></script>
 </body>
 </html>

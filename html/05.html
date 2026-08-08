@@ -4,69 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>第5章 フィリポ・カイサリア地方にて</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    :root {
-      --primary-color: #2c3e50;
-      --accent-color: #8e44ad;
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --border-color: #e9ecef;
-      --quote-bg: #f1f5f9;
-    }
+    /* 全体のレイアウト設定 */
+.commentary-container {
+  display: flex;
+  align-items: center; /* 上下中央揃え（上部に揃えたい場合は flex-start に変更してください） */
+  gap: 20px;          /* テキストと画像の間の余白 */
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.8;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      margin: 0;
-      padding: 20px 10px;
-    }
+/* 左側テキスト領域：幅75% */
+.commentary-text {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
 
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-   /* ==========================================
-       スクロール連動アニメーションの設定
-       ========================================== */
-    .container > * {
-      opacity: 0;
-      transform: translateY(30px);
-      transitio n: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
+/* 右側画像領域：幅25% */
+.commentary-image {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
 
-    .container > *.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h1 {
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      border-bottom: 3px solid var(--primary-color);
-      padding-bottom: 10px;
-      margin-top: 0;
-    }
+/* 画像をレスポンシブに収める設定 */
+.commentary-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 4px; /* お好みで角丸を追加 */
+}
+.image-text {
+  text-align: center;
+  font-weight: normal;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
 
-    h2 {
-      color: var(--primary-color);
-      font-size: 1.4rem;
-      border-left: 5px solid var(--accent-color);
-      padding-left: 10px;
-      margin-top: 35px;
-    }
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0 !important;
+  padding: 0 !important;
+}
 
-    h3 {
-      font-size: 1.15rem;
-      color: #34495e;
-      margin-top: 25px;
-    }
+.image-card {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
 
+.image-card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover;
+  object-position: center;
+}
     .badge {
       display: inline-block;
       padding: 2px 10px;
@@ -169,23 +166,36 @@
       <p>このように、イエスが弟子たちに問いを発した場所は、自然崇拝と皇帝崇拝が混在する、宗教と政治が複雑に絡み合う土地であった。豊かな実りをもたらすと信じられた神々が祀られ、同時にローマ皇帝を神として崇めることが求められる――そのような場所で、イエスは「人々は、人の子を何者だと言っているか」と問いかけられたのである。</p>
     </div>
 
-    <div class="image-card">
-      <img src="../img/banias_spring_temple.png" alt="フィリポ・カイサリア（パニアス）の風景と神殿跡">
-      <p>バニアスにある牧神パンの神殿跡ほか</p>
-    </div>
+         <span class="badge badge-meditation">【黙想】</span>
+      <p>政治学者・南原繁は「ある時代や国民がどの神を神とし、何を神性とみなすかは、その文化と運命を決定する」と述べている。イエスと弟子たちのやり取りは、まさにその言葉を思い起こさせるものであり、現代を生きる私たちにも深く響く問いとなっている。
+      <div class="bold">「人々は、人の子のことを何者だと言っているか。」</div>
+      「人の子」とは、イエスがご自身を指す言葉である。つまりイエスは、「人々はわたしをどう見ているか」と弟子たちに尋ねられたのである。これは単に世間の評判を気にした質問ではない。イエスはこれまで、尊敬を込めて「ラビ」と呼ばれることもあれば、病を癒す者として受け入れられたこともあった。一方で、悪霊の頭と罵られることもあった。賛否両論の中で活動してきたイエスが、ここで改めて弟子たちに問いかけたのは、これから訪れる厳しい出来事に備えるためだったのであろう。</p>
+      <p>実際、この直後のマタイ福音書16章21節では、イエスが初めてご自身の受難と死を弟子たちに明かす場面が続く。その重大な局面に向けて、イエスは弟子たちに「他者の声に耳を傾ける」姿勢を促しているように見える。どれほど立派な考えであっても、他者の声を無視すれば独善に陥り、自己満足にすぎなくなってしまうからである。</p>
+ 
 
     <div>
       <p>聖書は「聞くのに早く、話すのに遅くあれ」(ヤコブの手紙1章19節)と教える。イエスはまず弟子たちに、周囲の人々が何を語っているのかを聞き取るよう促された。弟子たちはその問いに対し、自分たちが知る限りの人々の声を答え始める。</p>
-      <p><em>バニアスにある牧神パンの神殿跡(筆者撮影)</em></p>
     </div>
+<div class="image-section">
 
-    <div>
-      <span class="badge badge-meditation">【黙想】</span>
-      <p>政治学者・南原繁は「ある時代や国民がどの神を神とし、何を神性とみなすかは、その文化と運命を決定する」と述べている。イエスと弟子たちのやり取りは、まさにその言葉を思い起こさせるものであり、現代を生きる私たちにも深く響く問いとなっている。<br>
-      「人々は、人の子のことを何者だと言っているか。」<br>
-      「人の子」とは、イエスがご自身を指す言葉である。つまりイエスは、「人々はわたしをどう見ているか」と弟子たちに尋ねられたのである。これは単に世間の評判を気にした質問ではない。イエスはこれまで、尊敬を込めて「ラビ」と呼ばれることもあれば、病を癒す者として受け入れられたこともあった。一方で、悪霊の頭と罵られることもあった。賛否両論の中で活動してきたイエスが、ここで改めて弟子たちに問いかけたのは、これから訪れる厳しい出来事に備えるためだったのであろう。</p>
-      <p>実際、この直後のマタイ福音書16章21節では、イエスが初めてご自身の受難と死を弟子たちに明かす場面が続く。その重大な局面に向けて、イエスは弟子たちに「他者の声に耳を傾ける」姿勢を促しているように見える。どれほど立派な考えであっても、他者の声を無視すれば独善に陥り、自己満足にすぎなくなってしまうからである。</p>
+  <div class="image-text">
+    バニアスにある牧神パンの神殿跡（筆者撮影）
+  </div>
+
+  <div class="image-grid">
+    <div class="image-card">
+      <img src="../img/05/0.jpg" alt="">
     </div>
+    <div class="image-card">
+      <img src="../img/05/1.jpg" alt="">
+    </div>
+    <div class="image-card">
+      <img src="../img/05/2.jpg" alt="">
+    </div>
+  </div>
+
+</div>
+ 
   </section>
 
   <section>
@@ -232,10 +242,6 @@
       <p>イエスは続く 18節で、「わたしも言っておく。あなたはペトロ。わたしはこの岩の上にわたしの教会を建てる」と宣言された。この言葉は、シモン・ペトロ個人だけに特別な地位を与えるために語られたものではないでしょう。ローマ・カトリック教会は、この言葉を根拠にペトロを教会の基礎とし、初代教皇の位置づけを与えている。しかし、教会の基礎はペトロという一人の人間ではなく、彼が語った信仰告白そのものにある。そして、その告白を彼に言わせた「生ける神」の働きこそが、最も重要なのである。</p>
     </div>
 
-    <div class="image-card">
-      <img src="../img/peter_confession_art.png" alt="ペトロの肖像画とイエスから鍵を授かる場面">
-      <p>ペトロの信仰告白・鍵の授与を描いた絵画</p>
-    </div>
 
     <div>
       <span class="badge badge-meditation">【黙想】</span>
@@ -250,31 +256,47 @@
 
   <section>
     <h2>4. 天の御国を開閉する権威を授けられる</h2>
-
     <div>
       <span class="badge badge-history">【史実】</span>
-      <p>イエスはさらにこう言われる。<br>
-      「わたしはあなたに天の国の鍵を授ける。」(19節)</p>
+      <p>イエスはさらにこう言われる。</p>
+       <div class="bold">「わたしはあなたに天の国の鍵を授ける。」（１９節）</div>
     </div>
 
-    <div>
-      <span class="badge badge-commentary">【解説】</span>
-      <p><strong>鍵を持ったペトロ</strong><br>
-      では、「天の御国の鍵を持つ」とはどういう意味でしょうか。<br>
-      ある聖書註解書は次のように説明している。<br>
-      「ペトロ自身が天国に入る権利を持つだけでなく、『鍵』によって象徴される一般的な権威を与えられ、福音を宣べ伝えることによって信じる者には天の御国を開き、不信仰者には閉ざされる手段となることを意味する」。<br>
-      このように、ペトロと使徒たちはイエスから驚くべき権威を託されたのである。</p>
-    </div>
+<div class="commentary-container">
+  <!-- 左側：テキスト領域（幅75%） -->
+  <div class="commentary-text">
+    <span class="badge badge-commentary">【解説】</span>
+    では、「天の御国の鍵を持つ」とはどういう意味でしょうか。<br>
+    ある聖書註解書は次のように説明している。<br>
+    「ペトロ自身が天国に入る権利を持つだけでなく、『鍵』によって象徴される一般的な権威を与えられ、福音を宣べ伝えることによって信じる者には天の御国を開き、不信仰者には閉ざされる手段となることを意味する」。<br>
+    このように、ペトロと使徒たちはイエスから驚くべき権威を託されたのである。</p>
+  </div>
+  <!-- 右側：画像領域（幅25%） -->
+<div class="commentary-image">
+  <img src="../img/05/3.jpg" alt="鍵を持ったペトロ">
+  <div class="image-caption">鍵を持ったペトロ</div>
+</div>
+</div>
 
-    <div class="image-card">
-      <img src="../img/jesus_and_disciples_landscape.png" alt="イエスと弟子たちの風景">
-      <p>イエスとペトロが向き合い、「あなたはメシア、生ける神の子です」と告白する場面</p>
-    </div>
+<div class="commentary-container mt1">
+  <!-- 左側：テキスト領域 -->
+  <div class="commentary-text">
+    <span class="badge badge-meditation">【黙想】</span>
+    <p>しかしこの時のペトロは、まだ「苦しむメシア」を理解してはいなかった。彼の信仰告白は真実であったが、その真実がどのような道を通るのかを、彼はまだ知らなかったのである。</p>
+  </div>
 
-    <div>
-      <span class="badge badge-meditation">【黙想】</span>
-      <p>しかしこの時のペトロは、まだ「苦しむメシア」を理解してはいなかった。彼の信仰告白は真実であったが、その真実がどのような道を通るのかを、彼はまだ知らなかったのである。<br>
-      <em>鍵を授けるキリスト→</em></p>
+  <!-- 右側：画像領域 -->
+  <div class="commentary-image mb1"">
+    <img src="../img/05/4.jpg" alt="鍵を授けるキリスト">
+      <div class="image-caption">鍵を授けるキリスト</div>
+  </div>
+</div>
+
+  <div class="image-card mt1">
+      <img src="../img/05/5.jpg" alt="『奇跡の漁』 ラファエロ">
+      <div class="caption">
+        <header>イエスとペトロが向き合い、「あなたはメシア、生ける神の子です」
+と告白する場面。</header></div>
     </div>
   </section>
 
@@ -282,7 +304,6 @@
     <h2>【コラム】 -「この岩」の解釈 カトリックとプロテスタント-</h2>
     
     <div>
-      <span class="badge badge-column">【コラム】</span>
       <p>イエスが「この岩の上にわたしの教会を建てる」と語られた言葉については、キリスト教の歴史の中で大きな解釈の違いが生まれてきた。ここで、カトリック教会とプロテスタント教会の理解を簡潔に整理しておきたいと思う。</p>
       <p>カトリック教会は、この「岩」をペトロ本人と理解する。イエスがペトロを教会の基礎として立てられたと解釈し、そこからペトロを初代とする教皇制度が形づくられた。現在のローマ教皇ロバート・フランシス・プレヴォストは267代目の教皇である。カトリック教会において教皇は、イエスから「天の国の鍵」を託された者として、特別な権威を持つ存在とされている。</p>
       <p>一方、宗教改革者マルティン・ルターをはじめとするプロテスタントの伝統では、「この岩」とはペトロの語った信仰告白――「あなたはメシア、生ける神の子です」――を指すと理解する。教会の基礎は特定の人物ではなく、「イエスこそキリストである」という信仰そのものにあるという立場である。</p>
@@ -291,27 +312,12 @@
   </section>
 
 </div>
-<!-- スクロールアニメーション用スクリプト -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const targets = document.querySelectorAll(".container > *");
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-show");
-          // 一度表示したら監視を終了する場合コメントを外す
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1 // 要素が10%見えたら発火
-    });
-
-    targets.forEach(target => {
-      observer.observe(target);
-    });
-  });
-</script>
+<!-- モーダルウィンドウ用のHTML -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="拡大画像">
+    <div id="modalCaption"></div>
+  </div>
+<script src="../js/script.js"></script>
 </body>
 </html>
