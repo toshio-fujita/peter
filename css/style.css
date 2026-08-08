@@ -344,55 +344,8 @@
   transform: translateX(4px);
 }
 
-/* --- スタイリッシュなヘッダー（タイトル装丁風） --- */
-  .toc-header {
-    text-align: center;
-    margin-bottom: 36px;
-    position: relative;
-    padding-bottom: 16px;
-  }
-
-  .toc-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-indigo));
-    border-radius: 2px;
-  }
-
-  .toc-subtitle {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--accent-blue);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  /* 「目次」の文字に前後のアクセント（括弧）と美しい余白を追加 */
-  h1 {
-    font-size: 1.85rem;
-    font-weight: 800;
-    letter-spacing: 0.2em; /* 文字の間隔を少し広げてモダンに */
-    color: var(--text-primary);
-    margin: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  /* 左右のアクセント装飾（スタイリッシュなブラケット） */
-  h1::before,
-  h1::after {
-    content: '—';
-    color: var(--accent-blue);
-    font-weight: 400;
-    opacity: 0.6;
-    letter-spacing: 0;
-  }
+@media (max-width: 640px) {
+    h1 {
+      font-size: 0.8rem;
+      letter-spacing: 0.07em;
+    }
