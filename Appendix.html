@@ -6,7 +6,26 @@
   <title>付録 十二使徒紹介(伝承と殉教地) - ペトロの生涯</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    /* 解説部分のレイアウト用CSS */
+    /* --- 基本・PC用スタイル --- */
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .apostle-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+      box-sizing: border-box;
+      width: 100%;
+    }
+
     .commentary-container {
       display: flex;
       flex-wrap: wrap;
@@ -14,12 +33,11 @@
       align-items: flex-start;
       width: 100%;
       box-sizing: border-box;
-      margin-bottom: 30px; /* カード間の余白 */
     }
 
     .commentary-text {
-      flex: 1;
-      min-width: 0;
+      flex: 1 1 0%;
+      min-width: 0; /* これが重要：フレックスアイテムの暴走を防ぐ */
       box-sizing: border-box;
     }
 
@@ -31,18 +49,32 @@
 
     .commentary-image img {
       width: 100%;
-      max-width: 100%;
       height: auto;
       object-fit: contain;
       display: block;
       box-sizing: border-box;
     }
 
-    /* apostle-card 内の p タグのマージンをリセットして調整 */
-    .apostle-card p {
+    .apostle-card h3 {
       margin-top: 0;
-      margin-bottom: 1em;
-      line-height: 1.6;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #666;
+      background: #fdfdfd;
+      padding: 6px 10px;
+      border-left: 3px solid #666;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
     }
 
     .photo-grid {
@@ -50,21 +82,17 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
       width: 100%;
-      max-width: 100%;
       box-sizing: border-box;
-      margin-top: 30px;
     }
 
     .photo-card {
       min-width: 0;
-      max-width: 100%;
       box-sizing: border-box;
       text-align: center;
     }
 
     .photo-card img {
       width: 100%;
-      max-width: 100%;
       height: 300px;
       object-fit: contain;
       display: block;
@@ -73,127 +101,46 @@
       box-sizing: border-box;
     }
 
-    .caption {
-      max-width: 100%;
-      box-sizing: border-box;
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
-    
-    .caption header {
-        font-weight: bold;
-        margin-bottom: 4px;
-    }
-
-    .apostle-card {
-      background: #fff;
-      border: 1px solid var(--border-color, #eee); /* 変数fallback追加 */
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    }
-
-    .apostle-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: var(--accent-color, #333); /* 変数fallback追加 */
-      font-size: 1.2rem;
-    }
-
-    .meta {
-      font-size: 0.85rem;
-      color: #555;
-      background: #f9f9f9;
-      padding: 8px 12px;
-      border-left: 3px solid var(--accent-color, #999); /* 変数fallback追加 */
-      margin-bottom: 15px;
-      border-radius: 0 4px 4px 0;
-    }
-
-    /* ページネーションのスタイル（元コードになかったため追加・調整用） */
-    .pagination-container {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-    .page-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        text-decoration: none;
-        padding: 8px 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        color: #333;
-        background: #fff;
-        cursor: pointer;
-    }
-    .page-btn:hover { background: #f5f5f5; }
-    .icon { width: 18px; height: 18px; }
-
-    /* モバイル表示時の調整 */
+    /* --- スマホ表示時の調整 (600px以下) --- */
     @media (max-width: 600px) {
       .container {
-        padding: 10px; /* 全体の余白を少し詰める */
+        padding: 10px;
       }
 
       .apostle-card {
         padding: 15px;
       }
 
-      /* スマホでは縦並びにする */
+      /* 縦並びにする */
       .commentary-container {
         flex-direction: column;
-        gap: 15px;
+        display: block; /* フレックスを解除して通常のブロック積み上げにする方が確実な場合もあります */
       }
 
+      /* 画像を上に配置し、幅を100%にする（余白の空白をなくす） */
       .commentary-image {
-        width: 100%;
-        flex: none;
-        order: -1; /* 画像を上に配置 */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 15px;
         text-align: center;
       }
 
       .commentary-image img {
+        width: 100% !important;
+        max-width: 280px !important; /* スマホで大きくなりすぎないよう制限しつつ中央へ */
         margin: 0 auto;
-        max-width: 80%; /* 画像サイズを画面幅の80%に */
-        height: auto;
       }
 
+      /* テキストを左寄せで親の幅いっぱいにする */
       .commentary-text {
-        width: 100%;
-        flex: none;
-        /* ★ここが重要：テキストを左揃えにする */
-        text-align: left;
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: left !important;
       }
-      
-      /* スマホ時の文字サイズ調整など */
-      .apostle-card h3 { font-size: 1.1rem; }
-      .meta { font-size: 0.8rem; }
-      .commentary-text p { font-size: 0.95rem; }
 
       .photo-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
-        margin-top: 20px;
       }
-
-      .photo-card img {
-        height: auto; /* スマホでは縦横比を維持 */
-        max-height: 250px;
-      }
-
-      h1 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-      }
-      
-      .pagination-container {
-          margin-top: 30px;
-      }
-      .page-btn { padding: 6px 12px; font-size: 0.9rem; }
     }
   </style>
 </head>
