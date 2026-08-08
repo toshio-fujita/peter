@@ -5,225 +5,1151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>目次</title>
 <style>
-  /* --- デザイン変数（カラー・スタイルを一括管理） --- */
-  :root {
-    --bg-main: #f8fafc;
-    --card-bg: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --accent-blue: #2563eb;
-    --accent-indigo: #4f46e5;
-    --part-bg: #f1f5f9;
-    --part-border: #cbd5e1;
-    --hover-bg: #f8fafc;
-    --border-color: #e2e8f0;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-  }
 
-  /* --- ベーススタイル --- */
-  * {
-    box-sizing: border-box;
-  }
+:root {
+  --bg-main: #eef2f7;
+  --card-bg: rgba(255, 255, 255, 0.94);
 
-  body {
-    margin: 0;
-    padding: 32px 16px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--text-primary);
-    line-height: 1.6;
-    background-color: var(--bg-main);
-    min-height: 100vh;
-  }
+  --text-primary: #172033;
+  --text-secondary: #64748b;
 
-  /* --- メインカード容器 --- */
-  .container {
-    max-width: 680px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    padding: 36px 32px;
-    border-radius: 16px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
-  }
-   /* ==========================================
-       スクロール連動アニメーションの設定
-       ========================================== */
-    .container > * {
-      opacity: 0;
-      transform: translateY(30px);
-      transitio n: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
+  --navy: #23395d;
+  --blue: #3b82c4;
+  --sky: #63b3ed;
+  --teal: #2c9a91;
+  --purple: #7567b3;
+  --gold: #c79a45;
+  --coral: #d97968;
 
-    .container > *.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  /* --- ヘッダー --- */
-  h1 {
-    text-align: center;
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: var(--text-primary);
-    margin: 0 0 20px 0;
-    position: relative;
-    padding-bottom: 12px;
-  }
+  --border-color: #dce3eb;
+  --hover-bg: #f5f9fd;
 
-  h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-indigo));
-    border-radius: 2px;
-  }
+  --shadow-md:
+    0 25px 70px rgba(28, 43, 64, 0.12);
 
-  /* --- 案内通知ブロック（モダンバッジ風） --- */
-  .notice {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 0.875rem;
-    color: #1e40af;
-    background-color: #eff6ff;
-    border: 1px solid #bfdbfe;
-    padding: 12px 16px;
-    border-radius: 10px;
-    margin-bottom: 28px;
-  }
+  --shadow-hover:
+    0 18px 40px rgba(38, 71, 105, 0.16);
+}
 
-  .notice-icon {
-    font-size: 1rem;
-    line-height: 1;
-  }
 
-  /* --- 目次リスト --- */
-  .toc-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+/* ==========================================
+   BASE
+========================================== */
 
-  /* --- リンク基本設定 --- */
-  .toc-list a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  /* 右矢印アイコンを擬似要素で付与 */
-  .toc-list a::after {
-    content: '→';
-    position: absolute;
-    right: 14px;
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: all 0.2s ease;
-    font-size: 0.875rem;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  .toc-list a:hover::after {
-    opacity: 1;
+body {
+  margin: 0;
+  padding: 60px 20px;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    Arial,
+    sans-serif;
+
+  color: var(--text-primary);
+  line-height: 1.7;
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(99, 179, 237, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(117, 103, 179, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #f8fafc 0%,
+      #eef2f7 50%,
+      #e9eef5 100%
+    );
+
+  overflow-x: hidden;
+}
+
+h1 a {
+  display: inline-block;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease;
+}
+
+h1 a:hover {
+  color: var(--blue);
+
+  animation:
+    titleShake 0.45s ease-in-out;
+}
+
+
+@keyframes titleShake {
+
+  0% {
     transform: translateX(0);
   }
 
-  /* --- レベル1（部・セクション見出し） --- */
-  .level-1 {
-    margin-top: 20px;
-    margin-bottom: 4px;
+  20% {
+    transform: translateX(-4px);
   }
 
-  .level-1:first-child {
-    margin-top: 0;
+  40% {
+    transform: translateX(4px);
+  }
+
+  60% {
+    transform: translateX(-3px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+/* ==========================================
+   背景の光
+========================================== */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  width: 280px;
+  height: 280px;
+
+  left: -140px;
+  top: 35%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 196, 0.10),
+      transparent 70%
+    );
+
+  animation: floatingLight 9s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 240px;
+  height: 240px;
+
+  right: -120px;
+  top: 15%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 154, 69, 0.09),
+      transparent 70%
+    );
+
+  animation: floatingLight 12s ease-in-out infinite alternate-reverse;
+
+  pointer-events: none;
+}
+
+@keyframes floatingLight {
+  from {
+    transform: translateY(-20px) scale(1);
+  }
+
+  to {
+    transform: translateY(40px) scale(1.15);
+  }
+}
+
+
+/* ==========================================
+   MAIN CARD
+========================================== */
+
+.container {
+  position: relative;
+
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  padding: 48px 48px 55px;
+
+  background: var(--card-bg);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 24px;
+
+  box-shadow: var(--shadow-md);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  animation: cardAppear 0.9s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* カード上部の光 */
+
+.container::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 12%;
+
+  width: 76%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 196, 0.6),
+      rgba(199, 154, 69, 0.6),
+      transparent
+    );
+}
+
+
+/* ==========================================
+   SCROLL ANIMATION
+========================================== */
+
+.container > * {
+  opacity: 0;
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(.2,.8,.2,1);
+}
+
+.container > *.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.toc-header {
+  position: relative;
+
+  margin-bottom: 34px;
+
+  padding: 25px 30px 27px;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #edf5fb 0%,
+      #f7f3ed 55%,
+      #f0eef9 100%
+    );
+
+  border: 1px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    0 8px 25px rgba(40,60,80,0.06);
+}
+
+
+/* 左アクセント */
+
+.toc-header::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 5px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--blue),
+      var(--teal),
+      var(--purple),
+      var(--gold)
+    );
+
+  background-size: 100% 300%;
+
+  animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+```css
+/* ==========================================
+   十字架の装飾
+========================================== */
+
+/* ページ全体に浮かぶ十字架 */
+
+body::after {
+  content: "✝";
+
+  position: fixed;
+
+  right: 5%;
+  top: 18%;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 70px;
+
+  color: rgba(49, 95, 140, 0.055);
+
+  pointer-events: none;
+
+  animation:
+    crossFloat 8s ease-in-out infinite;
+}
+
+
+/* 左側の十字架 */
+
+body::before {
+  content: "✝";
+
+  position: fixed;
+
+  left: 4%;
+  top: 62%;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 55px;
+
+  color: rgba(199, 154, 69, 0.065);
+
+  pointer-events: none;
+
+  animation:
+    crossFloatReverse 10s ease-in-out infinite;
+}
+
+
+/* 浮遊アニメーション */
+
+@keyframes crossFloat {
+
+  0% {
+    opacity: 0.35;
+    transform:
+      translateY(0)
+      rotate(-3deg);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform:
+      translateY(-18px)
+      rotate(3deg);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform:
+      translateY(0)
+      rotate(-3deg);
+  }
+}
+
+
+@keyframes crossFloatReverse {
+
+  0% {
+    opacity: 0.25;
+    transform:
+      translateY(0)
+      rotate(3deg);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform:
+      translateY(20px)
+      rotate(-3deg);
+  }
+
+  100% {
+    opacity: 0.25;
+    transform:
+      translateY(0)
+      rotate(3deg);
+  }
+}
+
+
+/* ==========================================
+   ヘッダー内部の小さな十字架
+========================================== */
+
+.toc-header {
+  position: relative;
+}
+
+
+/* ヘッダー右上に薄い十字架 */
+
+.toc-header .cross-decoration {
+  position: absolute;
+
+  right: 28px;
+  bottom: 12px;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 30px;
+
+  color: rgba(49, 95, 140, 0.09);
+
+  pointer-events: none;
+
+  animation:
+    gentleCross 6s ease-in-out infinite;
+}
+
+
+@keyframes gentleCross {
+
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: translateY(-5px);
+  }
+}
+
+
+/* ==========================================
+   スマートフォンでは控えめに
+========================================== */
+
+@media (max-width: 640px) {
+
+  body::before {
+    font-size: 38px;
+    left: 2%;
+  }
+
+  body::after {
+    font-size: 45px;
+    right: 2%;
+  }
+
+  .toc-header .cross-decoration {
+    right: 18px;
+    font-size: 24px;
+  }
+}
+```
+
+
+
+@keyframes ringRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ==========================================
+   HEADER TEXT
+========================================== */
+
+.toc-subtitle {
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 5px;
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.3em;
+
+  color: var(--blue);
+
+  text-transform: uppercase;
+}
+
+
+h1 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    "Times New Roman",
+    serif;
+
+  font-size: 1.3rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  color: var(--navy);
+}
+
+
+/* ==========================================
+   NOTICE
+========================================== */
+
+.notice {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 27px;
+
+  padding: 11px 15px;
+
+  font-size: 0.8rem;
+
+  color: #536579;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(237,245,251,0.9),
+      rgba(246,243,238,0.7)
+    );
+
+  border: 1px solid #dde6ee;
+
+  border-radius: 9px;
+
+  overflow: hidden;
+}
+
+
+/* 通知の光が横切る */
+
+.notice::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 50%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.8),
+      transparent
+    );
+
+  animation: noticeShine 5s ease-in-out infinite;
+}
+
+@keyframes noticeShine {
+  0%, 70% {
+    left: -100%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+
+/* ==========================================
+   NOTICE ICON
+========================================== */
+
+.notice-icon {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+
+  color: white;
+
+  font-size: 0.7rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue),
+      var(--teal)
+    );
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 3px 8px rgba(59,130,196,0.25);
+
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+
+/* ==========================================
+   TOC
+========================================== */
+
+.toc-list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+/* ==========================================
+   LINKS
+========================================== */
+
+.toc-list a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s cubic-bezier(.2,.8,.2,1),
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+
+/* ==========================================
+   LEVEL 1
+========================================== */
+
+.level-1 {
+  margin-top: 30px;
+
+  margin-bottom: 7px;
+}
+
+.level-1:first-child {
+  margin-top: 0;
+}
+
+
+.level-1 a {
+  position: relative;
+
+  width: 100%;
+
+  padding: 16px 20px 16px 24px;
+
+  font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+
+  font-size: 1.02rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  color: var(--navy);
+
+  background:
+    linear-gradient(
+      100deg,
+      #f4f8fb,
+      #faf9f5,
+      #f5f3fa
+    );
+
+  border: 1px solid #dde5ec;
+
+  border-radius: 11px;
+
+  overflow: hidden;
+}
+
+
+/* 部の左ライン */
+
+.level-1 a::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 7px;
+  bottom: 7px;
+
+  width: 4px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--blue),
+      var(--teal),
+      var(--purple)
+    );
+
+  border-radius: 0 4px 4px 0;
+
+  transition:
+    width 0.3s ease;
+}
+
+
+/* 部タイトルの光 */
+
+.level-1 a::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.55),
+      transparent
+    );
+
+  transition: left 0.6s ease;
+}
+
+
+/* ホバー */
+
+.level-1 a:hover {
+  color: var(--blue);
+
+  transform:
+    translateX(5px)
+    translateY(-2px);
+
+  border-color: #cbd9e6;
+
+  box-shadow: var(--shadow-hover);
+}
+
+
+.level-1 a:hover::before {
+  width: 7px;
+}
+
+
+.level-1 a:hover::after {
+  left: 120%;
+}
+
+
+/* ==========================================
+   LEVEL 2
+========================================== */
+
+.level-2 a {
+  min-height: 43px;
+
+  padding: 8px 42px 8px 29px;
+
+  font-size: 0.91rem;
+
+  color: #526174;
+
+  border-radius: 8px;
+}
+
+
+/* 左の小さなドット */
+
+.level-2 a::before {
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+
+  width: 5px;
+  height: 5px;
+
+  background: #cbd5df;
+
+  border-radius: 50%;
+
+  transition:
+    background 0.25s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* 右矢印 */
+
+.level-2 a::after {
+  content: "→";
+
+  position: absolute;
+
+  right: 16px;
+
+  font-size: 0.8rem;
+
+  color: var(--teal);
+
+  opacity: 0;
+
+  transform: translateX(-8px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s ease;
+}
+
+
+/* ホバー */
+
+.level-2 a:hover {
+  color: var(--navy);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(237,245,251,0.95),
+      rgba(244,250,249,0.75),
+      rgba(247,245,252,0.75)
+    );
+
+  padding-left: 34px;
+
+  transform: translateX(3px);
+
+  box-shadow:
+    0 4px 15px rgba(40,60,80,0.05);
+}
+
+
+.level-2 a:hover::before {
+  background: var(--teal);
+
+  transform: scale(1.8);
+
+  box-shadow:
+    0 0 0 4px rgba(44,154,145,0.12);
+}
+
+
+.level-2 a:hover::after {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+
+/* ==========================================
+   SECTION DIVIDER
+========================================== */
+
+.section-divider {
+  position: relative;
+
+  height: 1px;
+
+  margin: 30px 0 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d6dee7 15%,
+      #cbd7e2 50%,
+      #d6dee7 85%,
+      transparent
+    );
+}
+
+
+/* 中央の小さなゴールドポイント */
+
+.section-divider::after {
+  content: "✦";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  padding: 0 8px;
+
+  font-size: 0.65rem;
+
+  color: var(--gold);
+
+  background: white;
+}
+
+
+/* ==========================================
+   APPENDIX / AFTERWORD
+========================================== */
+
+.section-divider + .level-2 {
+  margin-top: 2px;
+}
+
+
+.section-divider + .level-2 a {
+  color: #7e8a69;
+
+  font-weight: 500;
+}
+
+
+.section-divider + .level-2 a::before {
+  background: var(--gold);
+}
+
+
+/* ==========================================
+   スクロール時の遅延
+   ※既存のJSの is-show を利用
+========================================== */
+
+.container > *:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.container > *:nth-child(2) {
+  transition-delay: 0.10s;
+}
+
+.container > *:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.container > *:nth-child(4) {
+  transition-delay: 0.20s;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 640px) {
+
+  body {
+    padding: 18px 10px;
+  }
+
+  .container {
+    padding: 30px 18px 38px;
+
+    border-radius: 17px;
+  }
+
+  .toc-header {
+    padding: 20px 21px 22px;
+
+    margin-bottom: 26px;
+  }
+
+  .toc-subtitle {
+    font-size: 0.6rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  h1 {
+    font-size: 1rem;
+
+    letter-spacing: 0.09em;
+  }
+
+  .notice {
+    font-size: 0.75rem;
+
+    padding: 9px 12px;
+  }
+
+  .level-1 {
+    margin-top: 24px;
   }
 
   .level-1 a {
-    padding: 12px 16px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--text-primary);
-    background: linear-gradient(90deg, #f8fafc, #f1f5f9);
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--accent-blue);
+    padding: 13px 15px 13px 20px;
+
+    font-size: 0.9rem;
   }
 
-  .level-1 a:hover {
-    background: #e2e8f0;
-    color: var(--accent-blue);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-  }
-
-  /* --- レベル2（各章・序言など） --- */
   .level-2 a {
-    padding: 10px 16px;
-    font-size: 0.95rem;
-    color: #334155;
-    border: 1px solid transparent;
+    min-height: 41px;
+
+    padding: 8px 34px 8px 25px;
+
+    font-size: 0.83rem;
   }
 
   .level-2 a:hover {
-    background-color: var(--hover-bg);
-    color: var(--accent-blue);
-    border-color: var(--border-color);
-    padding-left: 20px; /* ホバー時に少し右へスライド */
+    padding-left: 29px;
   }
 
-  /* 序章・刊行のことば用の区切線 */
   .section-divider {
-    height: 1px;
-    background-color: var(--border-color);
-    margin: 12px 0;
+    margin: 24px 0 8px;
   }
+}
 
-  /* --- レスポンシブ対応 --- */
-  @media (max-width: 640px) {
-    body {
-      padding: 16px 12px;
-    }
-    .container {
-      padding: 24px 18px;
-      border-radius: 12px;
-    }
-    h1 {
-      font-size: 1.5rem;
-    }
-    .notice {
-      font-size: 0.8rem;
-      padding: 10px 12px;
-    }
-    .level-1 a {
-      font-size: 0.95rem;
-      padding: 10px 12px;
-    }
-    .level-2 a {
-      font-size: 0.875rem;
-      padding: 8px 12px;
-    }
+
+/* ==========================================
+   アニメーションが苦手な環境への配慮
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+}
+```
+
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>目 次</h1>
+ <div class="toc-header">
 
-  <div class="notice">
-    <span class="notice-icon">💡</span>
-    <span>各章を読み終えたら、ブラウザの「戻る」ボタンで目次に戻れます。</span>
-  </div>
+  <span class="cross-decoration">✝</span>
+
+  <div class="toc-subtitle">THE LIFE OF PETER</div>
+
+  <h1><a href="index.html">ペトロの生涯　目次</a></h1>
+
+</div>
 
   <ul class="toc-list">
     <!-- 前書セクション -->
@@ -257,18 +1183,18 @@
     <li class="level-2"><a href="html/17.html">第17章 ペトロの投獄と救出</a></li>
     <li class="level-2"><a href="html/18.html">第18章 エルサレム会議（ペトロとパウロ）</a></li>
 
-    <!-- 第三部（誤字「第三部{長老...」を「第三部 長老...」に修正） -->
+    <!-- 第三部 -->
     <li class="level-1"><a href="html/part3.html">第三部 長老の使徒として円熟した晩年のペトロ</a></li>
     <li class="level-2"><a href="html/19.html">第19章 ペトロの晩年と成熟した信仰</a></li>
     <li class="level-2"><a href="html/20.html">最終章 ペトロの信仰の完成と殉教</a></li>
 
-    <li class="section-divider"></li>
 
     <!-- 付録・後書 -->
     <li class="level-2"><a href="html/Appendix.html">付 録 十二使徒紹介</a></li>
     <li class="level-2"><a href="html/Afterword.html">あとがき</a></li>
   </ul>
 </div>
+
 <!-- スクロールアニメーション用スクリプト -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -278,12 +1204,10 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-show");
-          // 一度表示したら監視を終了する場合コメントを外す
-          // observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.1 // 要素が10%見えたら発火
+      threshold: 0.1
     });
 
     targets.forEach(target => {
