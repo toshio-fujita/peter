@@ -11,7 +11,7 @@
         }
       });
     }, {
-      threshold: 0.1 // 要素が10%見えたら発火
+      threshold: 0.01 // 要素が1%見えたら発火
     });
 
     targets.forEach(target => {
