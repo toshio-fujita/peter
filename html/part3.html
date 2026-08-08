@@ -3,61 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 5秒後にリダイレクト設定 -->
+  <meta http-equiv="refresh" content="5;url=19.html">
   <title>第三部 長老の使徒として円熟したペトロ - ペトロの生涯</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    :root {
-      --primary-color: #2c3e50;
-      --accent-color: #8e44ad;
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --border-color: #e9ecef;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.8;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      margin: 0;
-      padding: 20px 10px;
-    }
-
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-   /* ==========================================
-       スクロール連動アニメーションの設定
-       ========================================== */
-    .container > * {
-      opacity: 0;
-      transform: translateY(30px);
-      transitio n: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .container > *.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h1 {
-      color: var(--primary-color);
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      color: var(--accent-color);
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      font-weight: bold;
-    }
-
     .image-card {
       background: #fff;
       border: 1px solid var(--border-color);
@@ -108,7 +58,7 @@
 <div class="container">
 
   <div class="image-card">
-    <img src="../img/part3_main.png" alt="手紙を書く使徒ペトロ (牧会者としての晩年)">
+    <img src="../img/part3/0.png" alt="手紙を書く使徒ペトロ (牧会者としての晩年)">
     <p>手紙を書く使徒ペトロ (牧会者としての晩年)</p>
   </div>
 
@@ -120,28 +70,17 @@
     (Iペトロ5章2節)を思わせる姿
   </div>
 
+    <!-- 案内テキストとプログレスバー -->
+  <div class="progress-bar-container">
+    <div class="progress-bar"></div>
+  </div>
 </div>
-<!-- スクロールアニメーション用スクリプト -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const targets = document.querySelectorAll(".container > *");
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-show");
-          // 一度表示したら監視を終了する場合コメントを外す
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1 // 要素が10%見えたら発火
-    });
-
-    targets.forEach(target => {
-      observer.observe(target);
-    });
-  });
-</script>
+<!-- モーダルウィンドウ用のHTML -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="拡大画像">
+    <div id="modalCaption"></div>
+  </div>
+<script src="../js/script.js"></script>
 </body>
 </html>

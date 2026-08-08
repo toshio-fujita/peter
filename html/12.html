@@ -4,68 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>第12章 最初の教会の誕生</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    :root {
-      --primary-color: #2c3e50;
-      --accent-color: #8e44ad;
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --border-color: #e9ecef;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.8;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      margin: 0;
-      padding: 20px 10px;
-    }
-
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-   /* ==========================================
-       スクロール連動アニメーションの設定
-       ========================================== */
-    .container > * {
-      opacity: 0;
-      transform: translateY(30px);
-      transitio n: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .container > *.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h1 {
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      border-bottom: 3px solid var(--primary-color);
-      padding-bottom: 10px;
-      margin-top: 0;
-    }
-
-    h2 {
-      color: var(--primary-color);
-      font-size: 1.4rem;
-      border-left: 5px solid var(--accent-color);
-      padding-left: 10px;
-      margin-top: 35px;
-    }
-
-    h3 {
-      color: var(--primary-color);
-      font-size: 1.1rem;
-      margin-top: 25px;
-    }
-
     .badge {
       display: inline-block;
       padding: 2px 10px;
@@ -221,28 +161,27 @@
     </div>
   </section>
 
+  <div class="pagination-container">
+  <!-- 左側：戻るボタン -->
+  <button class="page-btn page-btn-prev" onclick="history.back()">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <span>戻る</span>
+  </button>
+  
+  <!-- 右側：次へボタン -->
+  <a href="13.html" class="page-btn page-btn-next">
+    <span>次へ</span>
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </a>
 </div>
-<!-- スクロールアニメーション用スクリプト -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const targets = document.querySelectorAll(".container > *");
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-show");
-          // 一度表示したら監視を終了する場合コメントを外す
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1 // 要素が10%見えたら発火
-    });
 
-    targets.forEach(target => {
-      observer.observe(target);
-    });
-  });
-</script>
+</div>
+<!-- モーダルウィンドウ用のHTML -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="拡大画像">
+    <div id="modalCaption"></div>
+  </div>
+<script src="../js/script.js"></script>
 </body>
 </html>

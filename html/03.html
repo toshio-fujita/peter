@@ -291,6 +291,21 @@
   </section>
 
 </div>
+
+<div class="pagination-container">
+  <!-- 戻る：左側（JavaScriptでブラウザバック） -->
+  <button class="page-btn page-btn-prev" onclick="history.back()">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <span>戻る</span>
+  </button>
+  
+  <!-- 次へ：右側（ページごとに異なるリンク先を直接記述） -->
+  <a href="04.html" class="page-btn page-btn-next">
+    <span>次へ</span>
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </a>
+</div>
+
 <!-- モーダルウィンドウ用のHTML -->
   <div id="imageModal" class="modal">
     <span class="modal-close">&times;</span>

@@ -40,42 +40,6 @@
       color: #1976d2;
       font-size: 1.2rem;
     }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin: 20px 0 40px 0;
-    }
-    .photo-card {
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-  .photo-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-    .photo-card .caption {
-      padding: 12px;
-      font-size: 0.85rem;
-      color: #555;
-    }
-    .photo-card .caption header {
-      font-weight: bold;
-      margin-bottom: 4px;
-      color: #333;
-    }
-    @media (max-width: 600px) {
-      .container {
-        padding: 20px 15px;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -201,6 +165,21 @@
     </div>
   </div>
 </div>
+
+<div class="pagination-container">
+  <!-- 戻る：左側（JavaScriptでブラウザバック） -->
+  <button class="page-btn page-btn-prev" onclick="history.back()">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <span>戻る</span>
+  </button>
+  
+  <!-- 次へ：右側（ページごとに異なるリンク先を直接記述） -->
+  <a href="03.html" class="page-btn page-btn-next">
+    <span>次へ</span>
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </a>
+</div>
+
 <!-- モーダルウィンドウ用のHTML -->
   <div id="imageModal" class="modal">
     <span class="modal-close">&times;</span>
