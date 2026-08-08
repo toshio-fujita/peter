@@ -101,45 +101,49 @@
       box-sizing: border-box;
     }
 
-    /* --- スマホ表示時の調整 (600px以下) --- */
+   /* --- スマホ表示時の調整 (600px以下・強制適用版) --- */
     @media (max-width: 600px) {
       .container {
-        padding: 10px;
+        padding: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .apostle-card {
-        padding: 15px;
+        padding: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
-      /* 縦並びにする */
       .commentary-container {
-        flex-direction: column;
-        display: block; /* フレックスを解除して通常のブロック積み上げにする方が確実な場合もあります */
+        display: block !important; /* フレックスを解除して崩れを防ぐ */
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
-      /* 画像を上に配置し、幅を100%にする（余白の空白をなくす） */
       .commentary-image {
         width: 100% !important;
         max-width: 100% !important;
-        margin-bottom: 15px;
-        text-align: center;
+        margin-bottom: 15px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
       }
 
       .commentary-image img {
         width: 100% !important;
-        max-width: 280px !important; /* スマホで大きくなりすぎないよう制限しつつ中央へ */
-        margin: 0 auto;
+        max-width: 280px !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        box-sizing: border-box !important;
       }
 
-      /* テキストを左寄せで親の幅いっぱいにする */
       .commentary-text {
         width: 100% !important;
         max-width: 100% !important;
         text-align: left !important;
-      }
-
-      .photo-grid {
-        grid-template-columns: 1fr;
+        box-sizing: border-box !important;
+        float: none !important;
       }
     }
   </style>
