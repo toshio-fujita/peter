@@ -344,8 +344,68 @@
   transform: translateX(4px);
 }
 
+/* ==========================================
+   MOBILE
+========================================== */
+
 @media (max-width: 640px) {
-    h1 {
-      font-size: 0.8rem;
-      letter-spacing: 0.07em;
-    }
+
+  body {
+  padding: 5px 5px;
+}
+
+.container {
+  padding: 13px 13px 13px;
+}
+    border-radius: 6px;
+  }
+
+  .toc-header {
+    padding: 20px 21px 22px;
+
+    margin-bottom: 26px;
+  }
+
+  .toc-subtitle {
+    font-size: 0.6rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  h1 {
+    font-size: 1rem;
+
+    letter-spacing: 0.07em;
+  }
+
+  .notice {
+    font-size: 0.75rem;
+
+    padding: 9px 12px;
+  }
+
+  .level-1 {
+    margin-top: 24px;
+  }
+
+  .level-1 a {
+    padding: 13px 15px 13px 20px;
+
+    font-size: 1rem;
+  }
+
+  .level-2 a {
+    min-height: 41px;
+
+    padding: 8px 34px 8px 25px;
+
+    font-size: 0.9rem;
+  }
+
+  .level-2 a:hover {
+    padding-left: 29px;
+  }
+
+  .section-divider {
+    margin: 24px 0 8px;
+  }
